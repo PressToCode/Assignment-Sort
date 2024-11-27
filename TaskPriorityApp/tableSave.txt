@@ -1,0 +1,4 @@
+Pengembangan Aplikasi Web,Proyek Akhir - Menyusun Kode,27 Nov 2024,07:00,
+Jaringan Komputer,Laporan Case Base 03,28 Nov 2024,06:00,
+Algoritma & Struktur Data,Membuat Aplikasi Sorting,1 Des 2024,09:00,
+Aljabar Linear & Matrix,Kuis 2: Basis-Vektor Eigen-Dsb.,1 Des 2024,09:00,
