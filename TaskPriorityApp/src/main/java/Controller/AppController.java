@@ -220,26 +220,27 @@ public class AppController {
     private void bubbleSort(int size) {
         boolean swapped;
         // Continue sorting until no swaps are made
-        for (int i = 0; i < size - 1; i++) {
+        for (int i = size - 1; i > 0; i--) {
             swapped = false;
 
-            for (int j = 0; j < size - i - 1; j++) {
+            // Iterate backward from end to the beginning
+            for (int j = i; j > 0; j--) {
                 rowModel current = (rowModel) model.getDataArray().get(j);
-                rowModel next = (rowModel) model.getDataArray().get(j + 1);
+                rowModel prev = (rowModel) model.getDataArray().get(j - 1);
 
                 // Compare by date first
-                if (dateCompare(current.getDate(), next.getDate(), ">")) {
-                    // Swap current and next if current date is later than next
-                    model.getDataArray().set(j, next);
-                    model.getDataArray().set(j + 1, current);
+                if (dateCompare(current.getDate(), prev.getDate(), "<")) {
+                    // Swap current and previous if current date is earlier than previous
+                    model.getDataArray().set(j, prev);
+                    model.getDataArray().set(j - 1, current);
                     swapped = true;
                 } 
                 // If dates are equal, compare by time
-                else if (dateCompare(current.getDate(), next.getDate(), "=") && 
-                         timeCompare(current.getTime(), next.getTime(), ">")) {
-                    // Swap if current time is later than next
-                    model.getDataArray().set(j, next);
-                    model.getDataArray().set(j + 1, current);
+                else if (dateCompare(current.getDate(), prev.getDate(), "=") && 
+                         timeCompare(current.getTime(), prev.getTime(), "<")) {
+                    // Swap if current time is earlier than previous
+                    model.getDataArray().set(j, prev);
+                    model.getDataArray().set(j - 1, current);
                     swapped = true;
                 }
             }
@@ -250,6 +251,7 @@ public class AppController {
             }
         }
     }
+
     
     private void selectionSort(int size) {
         for (int i = 0; i < size - 1; i++) {

@@ -15,7 +15,6 @@ import javax.swing.table.TableModel;
 public class VisualController {
     // Global Variable
     private final DefaultTableModel model;
-    private int coloredRow;
     private final ArrayList<visualModel> dataArray;
     private String sort = "INSERTION";
     
